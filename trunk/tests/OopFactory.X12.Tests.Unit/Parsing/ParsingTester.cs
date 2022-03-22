@@ -13,6 +13,7 @@ using System.Xml;
 
 namespace OopFactory.X12.Tests.Unit.Parsing
 {
+    /*
     /// <summary>
     /// Summary description for ParsingTester
     /// </summary>
@@ -264,4 +265,5 @@ namespace OopFactory.X12.Tests.Unit.Parsing
             Trace.Write(interchange.First().Serialize());
         }
     }
+    */
 }
