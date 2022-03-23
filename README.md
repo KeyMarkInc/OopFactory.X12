@@ -1,4 +1,7 @@
 # OopFactory.X12
+Latest News
+Since no one seems to be maintaining this project anymore and I have need for a .NET Standard version of this library, I have taken the liberty of upgading it to .NET 6.0
+
 This is a copy of the project originally posted at https://x12parser.codeplex.com/
 
 Their original readme at the time this copy was made:
