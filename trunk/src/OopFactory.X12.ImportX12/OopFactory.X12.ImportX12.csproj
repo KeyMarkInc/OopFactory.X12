@@ -24,6 +24,7 @@
 		<Content Include="appsettings.json" />
 	</ItemGroup>
 	<Target Name="CopyFiles" AfterTargets="PostBuildEvent">
+		<Message Text="Copying Output Files" Importance="High" />
 		<ItemGroup>
 			<DllFiles Include="$(TargetDir)*.dll"/>
 			<OutputFile Include="$(TargetDir)$(TargetName)$(TargetExt)*"/>
