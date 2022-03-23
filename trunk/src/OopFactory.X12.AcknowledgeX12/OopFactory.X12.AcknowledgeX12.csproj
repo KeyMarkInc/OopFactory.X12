@@ -24,8 +24,19 @@
   <ItemGroup>
     <Content Include="appsettings.json" />
   </ItemGroup>
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)*.dll" "$(SolutionDir)Release\"
-copy "$(TargetDir)$(TargetName)$(TargetExt)*" "$(SolutionDir)Release\"</PostBuildEvent>
-  </PropertyGroup>
+	<Target Name="CopyFiles" AfterTargets="PostBuildEvent">
+		<Message Text="Copying Output Files" Importance="High" />
+		<ItemGroup>
+			<DllFiles Include="$(TargetDir)*.dll"/>
+			<OutputFile Include="$(TargetDir)$(TargetName)$(TargetExt)*"/>
+		</ItemGroup>
+		<Copy
+			SourceFiles="@(DllFiles)"
+			DestinationFolder="$(SolutionDir)Release"
+		/>
+		<Copy
+			SourceFiles="@(OutputFile)"
+			DestinationFolder="$(SolutionDir)Release"
+		/>
+	</Target>
 </Project>
