@@ -1,4 +1,11 @@
 # OopFactory.X12
+## Latest News
+Since no one seems to be maintaining this project anymore and I have need for a .NET Standard version of this library, I have taken the liberty of upgrading it to .NET 6.0. It should build on any environment that supports .NET 6.0 (Windows, Linux, MacOS). 
+## Known Issues
+* Note that some of the unit tests will fail wnen run on operating systems other than Windows due to Windows-style file paths. I will fix these when I get around to it.
+* There is a bunch of deprecated code that I will probably take a knife to at some point. 
+
+## Original Readme
 This is a copy of the project originally posted at https://x12parser.codeplex.com/
 
 Their original readme at the time this copy was made:
