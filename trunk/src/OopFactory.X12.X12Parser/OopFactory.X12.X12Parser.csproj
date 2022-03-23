@@ -23,10 +23,29 @@
   <ItemGroup>
     <Content Include="appsettings.json" />
   </ItemGroup>
-  <PropertyGroup>
-    <PostBuildEvent>xcopy "$(TargetDir)Specifications\*" "$(SolutionDir)Release\Specifications\" /r /y /c /i
-xcopy "$(TargetDir)*.dll" "$(SolutionDir)Release\" /r /y /c /i
-xcopy "$(TargetDir)*.xml" "$(SolutionDir)Release\" /r /y /c /i
-xcopy "$(TargetDir)$(TargetName)$(TargetExt)*" "$(SolutionDir)Release\" /r /y /c /i</PostBuildEvent>
-  </PropertyGroup>
+	<Target Name="CopyFiles" AfterTargets="PostBuildEvent">
+		<Message Text="Copying Output Files" Importance="High" />
+		<ItemGroup>
+			<DllFiles Include="$(TargetDir)*.dll"/>
+			<XmlFiles Include="$(TargetDir)*.xml"/>
+			<OutputFile Include="$(TargetDir)$(TargetName)$(TargetExt)*"/>
+            <Specifications Include="$(TargetDir)Specifications\*"/>
+		</ItemGroup>
+		<Copy
+			SourceFiles="@(Specifications)"
+			DestinationFolder="$(SolutionDir)Release\Specifications"
+		/>
+		<Copy
+			SourceFiles="@(DllFiles)"
+			DestinationFolder="$(SolutionDir)Release"
+		/>
+		<Copy
+			SourceFiles="@(XmlFiles)"
+			DestinationFolder="$(SolutionDir)Release"
+		/>
+		<Copy
+			SourceFiles="@(OutputFile)"
+			DestinationFolder="$(SolutionDir)Release"
+		/>
+	</Target>
 </Project>
